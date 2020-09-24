@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-BeautyShop</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+  <%- include('partials/header.ejs') %>
+  <div class="container mt-5">
+    <h1 class="mb-3">Welcome to E-BeautyShop</h1>
+    <h4 class="mb-3">Browse by Category</h4>
+    <div class="list-group">
+      <a class="list-group-item list-group-item-action" href="/?category=makeup" role="button">Makeup</a>
+      <a class="list-group-item list-group-item-action" href="/?category=skincare" role="button">Skincare</a>
+      <a class="list-group-item list-group-item-action" href="/?category=fragrance" role="button">Fragrance</a>
+    </div>
+  </div>
+  <%- include('partials/script.ejs') %>
+</body>
+
+</html>

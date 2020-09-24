@@ -1,0 +1,65 @@
+[
+  {
+    "brand": "Nature Republic",
+    "variant": "Aloe Vera Mask",
+    "category": "skincare",
+    "stock": 76,
+    "price": 32000
+  },
+  {
+    "brand": "Nivea",
+    "variant": "Night Cream",
+    "category": "skincare",
+    "stock": 31,
+    "price": 78000
+  },
+  {
+    "brand": "Chanel",
+    "variant": "Perfume",
+    "category": "fragrance",
+    "stock": 79,
+    "price": 500000
+  },
+  {
+    "brand": "Artisan",
+    "variant": "Hand Cream",
+    "category": "skincare",
+    "stock": 60,
+    "price": 89000
+  },
+  {
+    "brand": "Vaseline",
+    "variant": "Lip Gloss",
+    "category": "makeup",
+    "stock": 61,
+    "price": 58000
+  },
+  {
+    "brand": "The Body Shop",
+    "variant": "Eye Shadow",
+    "category": "makeup",
+    "stock": 80,
+    "price": 91000
+  },
+  {
+    "brand": "Bath & Body Works",
+    "variant": "Essential Oil",
+    "category": "fragrance",
+    "stock": 72,
+    "price": 100000
+  },
+  {
+    "brand": "Milk Makeup",
+    "variant": "Highlighter",
+    "category": "makeup",
+    "stock": 78,
+    "price": 153000
+  },
+  {
+    "brand": "Rosie Co.",
+    "variant": "Body Mist",
+    "category": "fragrance",
+    "stock": 70,
+    "price": 190500
+  }
+]

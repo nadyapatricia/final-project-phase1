@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-BeautyShop</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+  <%- include('partials/header.ejs') %>
+  <div class="container mt-5">
+    <h1><%= data[0].User.first_name %>'s Cart</h1> <br>
+    <h5>Credit: <%= toRupiah(data[0].User.credit) %></h5>
+    <h5>Delivery address: <%= data[0].User.delivery_address %></h5> <br>
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Brand</th>
+          <th scope="col">Variant</th>
+          <th scope="col">Category</th>
+          <th scope="col">Price</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Total</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% data.forEach(el => { %>
+        <tr>
+          <td> <%= el.Product.brand %> </td>
+          <td> <%= el.Product.variant %> </td>
+          <td> <%= el.Product.category %> </td>
+          <td> <%= toRupiah(el.Product.price) %> </td>
+          <td> <%= el.quantity %> </td>
+          <td> <%= toRupiah(el.multiply(el.Product.price)) %> </td>
+          <td>
+            <form action="/products/reduce/<%= el.Product.id %>" method="POST">
+              <input type="number" name="qty" placeholder="3" min="1">
+              <button type="submit" class="btn btn-md btn-outline-danger">Remove from Cart</button>
+            </form>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <h5 class="mb-3">Total price: <%= toRupiah(count) %></h5>
+    <a href="/cart/purchase/<%= data[0].id %>?total=<%= count %>" class="btn btn-warning mt-2" role="button"
+      type="submit">Buy now!</a>
+    <a href="/products" class="btn btn-outline-info mt-2" role="button" type="submit">Browse more products...</a>
+  </div>
+  <%- include('partials/script.ejs') %>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+  <%- include('partials/header.ejs') %>
+  <div class="container mt-5">
+    <h1>Happy shopping, <%= user.first_name %></h1>
+    <% if (fail) { %>
+    <div class="alert alert-danger" role="alert">
+      <%= fail %>
+    </div>
+    <% } %>
+    <a href="/logout" class="btn btn-warning mb-3" role="button" type="submit">Logout</a>
+    <a href="/cart/<%= user.id %>" class="btn btn-success mb-3" role="button" type="submit">Show cart</a> <br>
+    <h5>Or filter by category...</h5>
+    <a href="/products?category=skincare" class="btn btn-outline-info mb-2" role="button" type="submit">Skincare</a>
+    <a href="/products?category=fragrance" class="btn btn-outline-info mb-2" role="button" type="submit">Fragrance</a>
+    <a href="/products?category=makeup" class="btn btn-outline-info mb-2" role="button" type="submit">Makeup</a>
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Brand</th>
+          <th scope="col">Variant</th>
+          <th scope="col">Category</th>
+          <th scope="col">Price</th>
+          <th scope="col">Stock</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% data.forEach(el => { %>
+        <tr>
+          <td> <%= el.brand %> </td>
+          <td> <%= el.variant %> </td>
+          <td> <%= el.category %> </td>
+          <td> <%= el.price %> </td>
+          <td> <%= el.stock %> </td>
+          <td>
+            <form action="/products/add/<%= el.id %>" method="POST">
+              <input type="number" name="qty" placeholder="3" min="1">
+              <button type="submit" class="btn btn-md btn-outline-success">Add to Cart</button>
+            </form>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+  <%- include('partials/script.ejs') %>
+</body>
+
+</html>
